@@ -11,10 +11,6 @@ public class Measurement {
 	public void addValue(int value) {
 		int[] newArray = new int[data.length + 1];
 
-//		System.out.println(data.length);
-//		System.out.println(newArray.length);
-//		newArray[newArray.length - 1] = value;
-
 		for (int i = 0; i < data.length; i++) {
 			newArray[i] = data[i];
 		}
@@ -33,7 +29,6 @@ public class Measurement {
 		}
 
 		for (int i = 0; i < values.length; i++) {
-			// System.out.println(newArray[data.length + i]);
 			newArray[data.length + i] = values[i];
 		}
 
@@ -55,10 +50,10 @@ public class Measurement {
 
 	public int[] getValuesAboveThreshold(int threshold) {
 		int[] array = new int[0];
-		for (int x = 0; x < data.length; x++) {
-			if (data[x] > threshold) {
-				// System.out.println(data[x]);
 
+		for (int x = 0; x < data.length; x++) {
+
+			if (data[x] > threshold) {
 				int[] newArray = new int[array.length + 1];
 
 				for (int i = 0; i < array.length; i++) {
