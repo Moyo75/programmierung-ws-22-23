@@ -9,6 +9,7 @@ public class Measurement {
 	}
 
 	public void addValue(int value) {
+
 		int[] newArray = new int[data.length + 1];
 
 		for (int i = 0; i < data.length; i++) {

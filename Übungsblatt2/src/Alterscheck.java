@@ -4,7 +4,7 @@ public class Alterscheck {
 	// Aufgabe 1:
 	
 	//- Char ist ein Primitiv und hält nur ein Zeichen; String ist stattdessen ein Referenztyp (Klasse), daher ein 	komplettes Objekt.
-	//- Ein char beseht aus Einzelzeichen mit einfachen Anführungszeichen; Ein String definiert Zeilen, die in doppeltem Anführungszeichen angegeben sind.
+	//- Ein char besteht aus Einzelzeichen mit einfachen Anführungszeichen; Ein String definiert Zeilen, die in doppeltem Anführungszeichen angegeben sind.
 	  
 	//  Beispiele:
 	//  char a = 'z';  
