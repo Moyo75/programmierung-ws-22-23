@@ -5,11 +5,8 @@ public class Miniprojekt2 {
 
 		// Initialer Zug
 
-		System.out
-				.println(String
-						.format("Ein neuer Zug mit %d Waggon und %d von %d Passagieren.",
-								train.getSize(), train.getPassengerCount(),
-								train.getCapacity()));
+		System.out.println(String.format("Ein neuer Zug mit %d Waggon und %d von %d Passagieren.", train.getSize(),
+				train.getPassengerCount(), train.getCapacity()));
 		System.out.println(train.toString());
 
 		Waggon waggon1 = new Waggon("Waggon-1", 40);
@@ -24,11 +21,8 @@ public class Miniprojekt2 {
 		train.appendWaggon(waggon3);
 		train.appendWaggon(waggon4);
 
-		System.out
-				.println(String
-						.format("Dem Zug wurden vier Waggons angehangen: %d Waggon und %d von %d Passagieren.",
-								train.getSize(), train.getPassengerCount(),
-								train.getCapacity()));
+		System.out.println(String.format("Dem Zug wurden vier Waggons angehangen: %d Waggon und %d von %d Passagieren.",
+				train.getSize(), train.getPassengerCount(), train.getCapacity()));
 
 		System.out.println(train.toString());
 
@@ -37,11 +31,8 @@ public class Miniprojekt2 {
 		final int passengersDortmund = 35;
 		train.boardPassengers(passengersDortmund);
 
-		System.out
-				.println(String
-						.format("In Dortmund steigen %d Personen ein (aktuelle Auslastung: %d / %d).",
-								passengersDortmund, train.getPassengerCount(),
-								train.getCapacity()));
+		System.out.println(String.format("In Dortmund steigen %d Personen ein (aktuelle Auslastung: %d / %d).",
+				passengersDortmund, train.getPassengerCount(), train.getCapacity()));
 
 		printWaggonDetails(train);
 
@@ -50,11 +41,8 @@ public class Miniprojekt2 {
 		final int passengersBochum = 53;
 		train.boardPassengers(passengersBochum);
 
-		System.out
-				.println(String
-						.format("In Bochum steigen %d Personen ein (aktuelle Auslastung: %d / %d).",
-								passengersBochum, train.getPassengerCount(),
-								train.getCapacity()));
+		System.out.println(String.format("In Bochum steigen %d Personen ein (aktuelle Auslastung: %d / %d).",
+				passengersBochum, train.getPassengerCount(), train.getCapacity()));
 
 		printWaggonDetails(train);
 
@@ -63,11 +51,8 @@ public class Miniprojekt2 {
 		final int passengersEssen = 24;
 		train.boardPassengers(passengersEssen);
 
-		System.out
-				.println(String
-						.format("In Essen steigen %d Personen ein (aktuelle Auslastung: %d / %d).",
-								passengersEssen, train.getPassengerCount(),
-								train.getCapacity()));
+		System.out.println(String.format("In Essen steigen %d Personen ein (aktuelle Auslastung: %d / %d).",
+				passengersEssen, train.getPassengerCount(), train.getCapacity()));
 
 		printWaggonDetails(train);
 
@@ -104,8 +89,8 @@ public class Miniprojekt2 {
 	}
 
 	/**
-	 * Hilfsmethode, die die Wagen mit Namen, aktueller Passagierzahl und
-	 * Kapazität ausgibt
+	 * Hilfsmethode, die die Wagen mit Namen, aktueller Passagierzahl und Kapazität
+	 * ausgibt
 	 */
 	private static void printWaggonDetails(Train train) {
 		StringBuilder str = new StringBuilder();
@@ -113,8 +98,7 @@ public class Miniprojekt2 {
 		str.append("Verteilung:");
 		Waggon waggon = train.getHead();
 		while (waggon != null) {
-			str.append(String.format(" %s [%d / %d]", waggon.getName(),
-					waggon.getPassengers(), waggon.getCapacity()));
+			str.append(String.format(" %s [%d / %d]", waggon.getName(), waggon.getPassengers(), waggon.getCapacity()));
 
 			waggon = waggon.getNext();
 		}

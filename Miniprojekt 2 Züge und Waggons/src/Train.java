@@ -6,21 +6,104 @@ public class Train {
 	private Waggon head;
 
 	public int getSize() {
-		return -1;
+		if (head == null) {
+			return 0;
+		}
+
+		Waggon start = head;
+		int counter = 0;
+
+		while (start != null) {
+			counter++;
+			start = start.getNext();
+		}
+
+		return counter;
 	}
 
 	public int getPassengerCount() {
-		return -1;
+		if (head == null) {
+			return 0;
+		}
+
+		Waggon start = head;
+		int counter = 0;
+
+		while (start != null) {
+			counter += start.getPassengers();
+			start = start.getNext();
+		}
+
+		return counter;
 	}
 
 	public int getCapacity() {
-		return -1;
+		if (head == null) {
+			return 0;
+		}
+
+		Waggon start = head;
+		int counter = 0;
+
+		while (start != null) {
+			counter += start.getCapacity();
+			start = start.getNext();
+		}
+
+		return counter;
 	}
 
 	public void appendWaggon(Waggon waggon) {
+		if (head == null) {
+			head = waggon;
+			return;
+		}
+
+		Waggon start = head;
+
+		while (start != null) {
+
+			if (start.getNext() == null) {
+				start.setNext(waggon);
+				break;
+			}
+
+			start = start.getNext();
+		}
 	}
 
 	public void boardPassengers(int numberOfPassengers) {
+		if (head == null) {
+			return;
+		}
+
+		Waggon start = head;
+		int remainder = 0;
+
+		while (start != null && numberOfPassengers >= 0) {
+			int passengers = start.getPassengers();
+
+//			System.out.println("BEFORE: Wagon's passengers: " + (start.getPassengers()) + " | Wagon's space: "
+//					+ (start.getCapacity() - start.getPassengers()) + " | Number of passengers: " + numberOfPassengers);
+
+			if (start.getPassengers() < start.getCapacity()) {
+				passengers += (numberOfPassengers - remainder);
+				start.setPassengers(passengers);
+
+				if (passengers > start.getCapacity()) {
+					passengers = start.getCapacity();
+					start.setPassengers(passengers);
+					remainder = numberOfPassengers - (start.getCapacity() - passengers);
+					numberOfPassengers = numberOfPassengers - remainder;
+					System.out.println(numberOfPassengers);
+				}
+			}
+
+//			System.out.println("AFTER: Wagon's passengers: " + (start.getPassengers()) + " | Wagon's space: "
+//					+ (start.getCapacity() - start.getPassengers()) + " | Number of passengers: " + numberOfPassengers);
+
+			start = start.getNext();
+		}
 	}
 
 	public Train uncoupleWaggons(int index) {
@@ -37,7 +120,24 @@ public class Train {
 	}
 
 	public Waggon getWaggonAt(int index) {
-		return null;
+		if (head == null) {
+			return null;
+		}
+
+		Waggon start = head, waggonAt = head;
+		int counter = 0;
+
+		while (start != null) {
+			if (counter == index) {
+				waggonAt = start;
+				break;
+			}
+
+			start = start.getNext();
+			counter++;
+		}
+
+		return waggonAt;
 	}
 
 	@Override
@@ -57,7 +157,7 @@ public class Train {
 
 		return str.toString();
 	}
-	
+
 	public Waggon getHead() {
 		return head;
 	}
